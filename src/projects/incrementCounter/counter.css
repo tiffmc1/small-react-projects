@@ -1,0 +1,24 @@
+.counter-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.counter-heading {
+	font-size: 3em;
+	padding-top: 2em;
+	padding-bottom: 1em;
+}
+
+.counter-counter {
+	font-size: 3em;
+	padding-bottom: 1em;
+}
+
+.counter-button {
+	border-radius: 3%;
+	border-width: 5px;
+	border-color: gainsboro;
+	font-size: larger;
+	width: 8em;
+}
