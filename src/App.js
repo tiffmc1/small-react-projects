@@ -1,7 +1,8 @@
-import "./App.css";
+import { Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import Counter from "./projects/incrementCounter/Counter";
-import { Routes, Route, Link } from "react-router-dom";
+import DataFetch from "./projects/dataFetch/DataFetch";
+import "./App.css";
 
 function App() {
 	return (
@@ -12,6 +13,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/counter" element={<Counter />} />
+				<Route path="/dataFetch" element={<DataFetch />} />
 			</Routes>
 		</>
 	);
