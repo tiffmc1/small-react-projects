@@ -3,6 +3,8 @@ import Home from "./Home";
 import Counter from "./projects/counter/Counter";
 import DataFetch from "./projects/dataFetchUsers/DataFetch";
 import Posts from "./projects/dataFetchPosts/Posts";
+import Form from "./projects/inputForm/Form";
+import Carousel from "./projects/carousel/Carousel";
 import "./App.css";
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
 				<Route path="/counter" element={<Counter />} />
 				<Route path="/dataFetch" element={<DataFetch />} />
 				<Route path="/posts" element={<Posts />} />
+				<Route path="/form" element={<Form />} />
+				<Route path="/carousel" element={<Carousel />} />
 			</Routes>
 		</>
 	);

@@ -1,0 +1,28 @@
+.wrapper {
+	display: block;
+}
+
+.red {
+	background: red;
+}
+
+.element-container {
+	margin: 0 auto 20px;
+}
+
+.element {
+	display: inline-flex;
+	width: 100px;
+	height: 100px;
+	border: 1px solid;
+	border-right: none;
+	cursor: pointer;
+}
+
+.element:last-child {
+	border-right: 1px solid;
+}
+
+.button-container {
+	margin: 0 auto;
+}

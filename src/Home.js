@@ -7,6 +7,8 @@ const Home = () => {
 			<Link to="/counter">Counter</Link>
 			<Link to="/dataFetch">Data Fetching: Random Users</Link>
 			<Link to="/posts">Data Fetching: Posts</Link>
+			<Link to="/form">Multi-Step Input Form</Link>
+			<Link to="/carousel">Carousel</Link>
 		</div>
 	);
 };
