@@ -4,12 +4,27 @@ import "./home.css";
 const Home = () => {
 	return (
 		<div className="home-container">
-			<Link to="/counter">Counter</Link>
-			<Link to="/dataFetch">Data Fetching: Random Users</Link>
-			<Link to="/posts">Data Fetching: Posts</Link>
-			<Link to="/form">Multi-Step Input Form</Link>
-			<Link to="/carousel">Carousel</Link>
-			<Link to="/hex-guess">Hex-Guess Game</Link>
+			<div className="home-header">Small Projects Using Create-React-App</div>
+			<div className="home-link-wrapper">
+				<Link to="/counter" className="home-link">
+					Counter
+				</Link>
+				<Link to="/dataFetch" className="home-link">
+					Data Fetching: Random Users
+				</Link>
+				<Link to="/posts" className="home-link">
+					Data Fetching: Posts
+				</Link>
+				<Link to="/form" className="home-link">
+					Multi-Step Input Form
+				</Link>
+				<Link to="/carousel" className="home-link">
+					Carousel
+				</Link>
+				<Link to="/hex-guess" className="home-link">
+					Hex-Guess Game
+				</Link>
+			</div>
 		</div>
 	);
 };
