@@ -1,0 +1,40 @@
+.hex-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.hex-header {
+	font-size: 45px;
+}
+
+.hex-color {
+	width: 40vw;
+	height: 40vh;
+}
+
+.hex-btn-wrapper {
+	display: flex;
+	flex-direction: row;
+	margin-top: 1rem;
+}
+
+.hex-btn {
+	margin: 1em;
+	padding: 15px;
+	width: auto;
+}
+
+.hex-answer-wrapper {
+	font-size: 2rem;
+	margin-top: 1rem;
+}
+
+.hex-correct {
+	color: green;
+}
+
+.hex-wrong {
+	color: red;
+}

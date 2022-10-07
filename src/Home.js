@@ -9,6 +9,7 @@ const Home = () => {
 			<Link to="/posts">Data Fetching: Posts</Link>
 			<Link to="/form">Multi-Step Input Form</Link>
 			<Link to="/carousel">Carousel</Link>
+			<Link to="/hex-guess">Hex-Guess Game</Link>
 		</div>
 	);
 };

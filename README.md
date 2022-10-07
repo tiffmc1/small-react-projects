@@ -5,3 +5,4 @@
 3. Data Fetching Posts Using Built-In Fetch
 4. Input Form _currently under construction_
 5. Carousel
+6. Hex-Guess Game
