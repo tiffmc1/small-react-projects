@@ -1,7 +1,8 @@
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import Counter from "./projects/incrementCounter/Counter";
-import DataFetch from "./projects/dataFetch/DataFetch";
+import DataFetch from "./projects/dataFetchUsers/DataFetch";
+import Posts from "./projects/dataFetchPosts/Posts";
 import "./App.css";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/counter" element={<Counter />} />
 				<Route path="/dataFetch" element={<DataFetch />} />
-				<Route path="/albums" />
+				<Route path="/posts" element={<Posts />} />
 			</Routes>
 		</>
 	);

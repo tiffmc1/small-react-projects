@@ -6,7 +6,7 @@ const Home = () => {
 		<div className="home-container">
 			<Link to="/counter">Increment Count</Link>
 			<Link to="/dataFetch">Data Fetching: Random Users</Link>
-			<Link to="/albums">Data Fetching: Albums</Link>
+			<Link to="/posts">Data Fetching: Posts</Link>
 		</div>
 	);
 };
