@@ -4,7 +4,7 @@ import "./home.css";
 const Home = () => {
 	return (
 		<div className="home-container">
-			<Link to="/counter">Increment Count</Link>
+			<Link to="/counter">Counter</Link>
 			<Link to="/dataFetch">Data Fetching: Random Users</Link>
 			<Link to="/posts">Data Fetching: Posts</Link>
 		</div>
