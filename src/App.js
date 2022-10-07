@@ -11,9 +11,11 @@ import "./App.css";
 function App() {
 	return (
 		<>
-			<nav className="app-nav">
-				<Link to="/">Home</Link>
-			</nav>
+			<div className="app-nav">
+				<nav className="nav-wrapper">
+					<Link to="/">Home</Link>
+				</nav>
+			</div>
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/counter" element={<Counter />} />

@@ -1,3 +1,25 @@
 .app-nav {
-	padding: 1em;
+	display: flex;
+	justify-content: space-between;
+	padding: 38px;
+}
+
+.nav-wrapper {
+	height: 22px;
+	border-bottom: 1px solid transparent;
+	transition: border-bottom 0.5s;
+}
+
+.nav-wrapper a {
+	color: #8a8a8a;
+	text-decoration: none;
+	transition: color 0.5s;
+}
+
+.nav-wrapper:hover {
+	border-bottom: 1px solid black;
+}
+
+.nav-wrapper a:hover {
+	color: black;
 }
