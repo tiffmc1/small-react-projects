@@ -14,6 +14,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/counter" element={<Counter />} />
 				<Route path="/dataFetch" element={<DataFetch />} />
+				<Route path="/albums" />
 			</Routes>
 		</>
 	);
