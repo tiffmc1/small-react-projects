@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import "../inputForm/form.css";
 
 const Form = (steps) => {
-	const [currentStepIdx, setCurrentStepIdx] = useState(0);
+	// const [currentStepIdx, setCurrentStepIdx] = useState(0);
 
 	return (
 		<>
-			{currentStepIdx}
-			<div>{steps[currentStepIdx]}</div>
+			<div className="form-construction">Currently Under Construction</div>
+			{/* {currentStepIdx}
+			<div>{steps[currentStepIdx]}</div> */}
 		</>
 	);
 };
