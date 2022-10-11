@@ -22,11 +22,22 @@ const TaskList = () => {
 		inputRef.current.value = null;
 	};
 
+	const handleClearTasks = () => {
+		const copiedTasks = [...tasks];
+
+		const uncompletedTasks = copiedTasks.filter(
+			(task) => task.completed === false
+		);
+
+		setTasks(uncompletedTasks);
+	};
+
 	const handleToggleBox = (taskId) => {
 		// should make a copy in order to avoid the direct modification of the tasks list
 		const copiedTasks = [...tasks];
 
 		const toggleTask = copiedTasks.find((task) => task.id === taskId);
+
 		toggleTask.completed = !toggleTask.completed;
 
 		setTasks(copiedTasks);
@@ -41,9 +52,15 @@ const TaskList = () => {
 				<button onClick={handleAddTask} className="btn-add-task">
 					Add Task
 				</button>
-				<button className="btn-clear-tasks">Clear Completed Tasks</button>
+				<button onClick={handleClearTasks} className="btn-clear-tasks">
+					Clear Completed Tasks
+				</button>
 			</div>
-			<div>2 Tasks Remaining</div>
+			<div>
+				{tasks.length < 2
+					? `${tasks.length} Task Remaining`
+					: `${tasks.length} Tasks Remaining`}
+			</div>
 		</>
 	);
 };
