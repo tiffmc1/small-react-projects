@@ -4,7 +4,7 @@ import "./home.css";
 const Home = () => {
 	return (
 		<div className="home-container">
-			<div className="home-header">Small Projects Using Create-React-App</div>
+			<div className="home-header">Small Projects Using React</div>
 			<div className="home-link-wrapper">
 				<Link to="/counter" className="home-link">
 					Counter

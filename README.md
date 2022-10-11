@@ -7,7 +7,7 @@
 5. Carousel
 6. Hex-Guess Game
 
-## Technologies:
+### Technologies
 
 1. React v18 for building fast and responsive UI
 2. Firebase for hosting (https://cra-small-projects.web.app/)
