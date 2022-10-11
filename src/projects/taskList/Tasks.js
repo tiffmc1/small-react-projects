@@ -1,8 +1,16 @@
-import React from "react";
+import Task from "./Task";
 import "../taskList/tasks.css";
 
-const Tasks = () => {
-	return <div>Tasks</div>;
+const Tasks = ({ tasks, handleToggleBox }) => {
+	return (
+		<>
+			<div className="tasks-wrapper">
+				{tasks.map((task) => (
+					<Task key={task.id} task={task} handleToggleBox={handleToggleBox} />
+				))}
+			</div>
+		</>
+	);
 };
 
 export default Tasks;
