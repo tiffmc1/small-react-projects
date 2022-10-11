@@ -3,11 +3,24 @@ import { v4 as uuidv4 } from "uuid";
 import Tasks from "./Tasks";
 import "../taskList/taskList.css";
 
+const TASK_LIST_KEY = "TASK_LIST_KEY";
+
 const TaskList = () => {
 	const [tasks, setTasks] = useState([]);
 	const inputRef = useRef(null);
 
-	useEffect(() => {}, []);
+	useEffect(() => {
+		const getTasksFromLocalStore = JSON.parse(
+			localStorage.getItem(TASK_LIST_KEY)
+		);
+
+		// will not persist without this statement
+		if (getTasksFromLocalStore.length > 0) setTasks(getTasksFromLocalStore);
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem(TASK_LIST_KEY, JSON.stringify(tasks));
+	}, [tasks]);
 
 	const handleAddTask = () => {
 		const inputTask = inputRef.current.value;
