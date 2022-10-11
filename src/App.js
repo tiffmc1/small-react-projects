@@ -6,7 +6,7 @@ import Posts from "./projects/dataFetchPosts/Posts";
 import Form from "./projects/inputForm/Form";
 import Carousel from "./projects/carousel/Carousel";
 import HexGuess from "./projects/hex-guess/HexGuess";
-import TaskList from "./projects/taskList/TaskList";
+import TaskList from "./projects/taskList/components/TaskList";
 import "./App.css";
 
 function App() {

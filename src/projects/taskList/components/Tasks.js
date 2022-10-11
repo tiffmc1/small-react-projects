@@ -1,5 +1,5 @@
 import Task from "./Task";
-import "../taskList/tasks.css";
+import "../stylesheets/tasks.css";
 
 const Tasks = ({ tasks, handleToggleBox }) => {
 	return (

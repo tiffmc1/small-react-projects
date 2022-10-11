@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Tasks from "./Tasks";
-import "../taskList/taskList.css";
+import "../stylesheets/taskList.css";
 
 const TASK_LIST_KEY = "TASK_LIST_KEY";
 
@@ -57,24 +57,26 @@ const TaskList = () => {
 	};
 
 	return (
-		<>
-			<h1>"Hunny, Do..." List</h1>
-			<Tasks tasks={tasks} handleToggleBox={handleToggleBox} />
-			<input type="text" ref={inputRef} />
-			<div className="btn-wrapper">
-				<button onClick={handleAddTask} className="btn-add-task">
-					Add Task
-				</button>
-				<button onClick={handleClearTasks} className="btn-clear-tasks">
-					Clear Completed Tasks
-				</button>
+		<div className="task-list-container">
+			<div className="task-list-wrapper">
+				<h1 className="task-list-header">"Hunny, Do..." List</h1>
+				<Tasks tasks={tasks} handleToggleBox={handleToggleBox} />
+				<input type="text" ref={inputRef} className="task-list-input" />
+				<div className="btn-wrapper">
+					<button onClick={handleAddTask} className="task-list-btn">
+						Add Task
+					</button>
+					<button onClick={handleClearTasks} className="task-list-btn">
+						Clear Completed Tasks
+					</button>
+				</div>
+				<div className="task-list-remainders">
+					{tasks.length < 2
+						? `${tasks.length} Task Remaining`
+						: `${tasks.length} Tasks Remaining`}
+				</div>
 			</div>
-			<div>
-				{tasks.length < 2
-					? `${tasks.length} Task Remaining`
-					: `${tasks.length} Tasks Remaining`}
-			</div>
-		</>
+		</div>
 	);
 };
 
