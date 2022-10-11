@@ -6,6 +6,7 @@ import Posts from "./projects/dataFetchPosts/Posts";
 import Form from "./projects/inputForm/Form";
 import Carousel from "./projects/carousel/Carousel";
 import HexGuess from "./projects/hex-guess/HexGuess";
+import TaskList from "./projects/taskList/TaskList";
 import "./App.css";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
 				<Route path="/form" element={<Form />} />
 				<Route path="/carousel" element={<Carousel />} />
 				<Route path="/hex-guess" element={<HexGuess />} />
+				<Route path="/task-list" element={<TaskList />} />
 			</Routes>
 		</>
 	);

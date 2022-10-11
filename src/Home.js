@@ -24,6 +24,9 @@ const Home = () => {
 				<Link to="/hex-guess" className="home-link">
 					Hex-Guess Game
 				</Link>
+				<Link to="/task-list" className="home-link">
+					"Hunny, Do..." List
+				</Link>
 			</div>
 		</div>
 	);
