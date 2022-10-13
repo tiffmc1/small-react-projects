@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { fetchUserData } from "./api";
+import "../dataFetchUsers/dataFetch.css";
 
 // 1. Use the api below to fetch this user's data and display it on the web page
 // 2. Then, use that gathered data, and display the user's name and picture on the page
@@ -30,17 +31,22 @@ const DataFetch = () => {
 
 	return (
 		<>
-			<div>
+			<div className="users-header">Random Person Generator</div>
+			<div className="users-wrapper">
 				{userResults.map((user, idx) => (
-					<div key={idx}>
+					<div key={idx} className="users-ind">
 						<img src={user.picture.large} alt="" />
-						<div>
+						<div className="users-name">
 							{user.name.first} {user.name.last}
 						</div>
 					</div>
 				))}
-				<button onClick={fetchNextUser}>Next User</button>
-				<pre>{randomUserJSON}</pre>
+				{/* <pre>{randomUserJSON}</pre> */}
+			</div>
+			<div className="users-btn-wrapper">
+				<button onClick={fetchNextUser} className="users-btn">
+					Next User
+				</button>
 			</div>
 		</>
 	);
