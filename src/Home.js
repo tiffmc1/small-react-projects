@@ -4,8 +4,8 @@ import "./home.css";
 const Home = () => {
 	return (
 		<div className="home-container">
-			<div className="home-header">Small Projects Using React</div>
 			<div className="home-link-wrapper">
+				<div className="home-header">Small Projects Using React</div>
 				<Link to="/task-list" className="home-link">
 					"Hunny, Do..." List
 				</Link>

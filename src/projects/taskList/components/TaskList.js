@@ -57,26 +57,36 @@ const TaskList = () => {
 	};
 
 	return (
-		<div className="task-list-container">
-			<div className="task-list-wrapper">
-				<h1 className="task-list-header">"Hunny, Do..." List</h1>
-				<Tasks tasks={tasks} handleToggleBox={handleToggleBox} />
-				<input type="text" ref={inputRef} className="task-list-input" />
-				<div className="btn-wrapper">
-					<button onClick={handleAddTask} className="task-list-btn">
-						Add Task
-					</button>
-					<button onClick={handleClearTasks} className="task-list-btn">
-						Clear Completed Tasks
-					</button>
-				</div>
-				<div className="task-list-remainders">
-					{tasks.length < 2
-						? `${tasks.length} Task Remaining`
-						: `${tasks.length} Tasks Remaining`}
+		<>
+			<div className="task-list-container">
+				<div className="task-list-left"></div>
+				<div className="task-list-right">
+					<div className="task-list-wrapper">
+						<h1 className="task-list-header">"Hunny, Do..." List</h1>
+						<Tasks tasks={tasks} handleToggleBox={handleToggleBox} />
+						<input
+							type="text"
+							maxLength={20}
+							ref={inputRef}
+							className="task-list-input"
+						/>
+						<div className="btn-wrapper">
+							<button onClick={handleAddTask} className="task-list-btn">
+								Add Task
+							</button>
+							<button onClick={handleClearTasks} className="task-list-btn">
+								Clear Completed Tasks
+							</button>
+						</div>
+						<div className="task-list-remainders">
+							{tasks.length < 2
+								? `${tasks.length} Task Remaining`
+								: `${tasks.length} Tasks Remaining`}
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
