@@ -1,5 +1,7 @@
 .wrapper {
 	display: block;
+	padding-left: 3rem;
+	padding-top: 1rem;
 }
 
 .red {
@@ -24,5 +26,10 @@
 }
 
 .button-container {
-	margin: 0 auto;
+	margin: 0;
+}
+
+.button-ind {
+	margin-right: 5px;
+	padding: 5px;
 }

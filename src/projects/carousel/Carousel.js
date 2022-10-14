@@ -15,16 +15,23 @@ const Carousel = () => {
 				<button
 					id="button-left"
 					type="button"
+					className="button-ind"
 					onClick={() => (count > 1 ? setCount(count - 1) : setCount(3))}
 				>
 					{"<"}
 				</button>
-				<button id="button-reset" type="button" onClick={() => setCount(1)}>
-					reset
+				<button
+					id="button-reset"
+					type="button"
+					className="button-ind"
+					onClick={() => setCount(1)}
+				>
+					Reset
 				</button>
 				<button
 					id="button-right"
 					type="button"
+					className="button-ind"
 					onClick={() => (count < 3 ? setCount(count + 1) : setCount(1))}
 				>
 					{">"}
