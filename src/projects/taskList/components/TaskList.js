@@ -14,6 +14,7 @@ const TaskList = () => {
 			localStorage.getItem(TASK_LIST_KEY)
 		);
 
+		if (!getTasksFromLocalStore) return;
 		// will not persist without this statement
 		if (getTasksFromLocalStore.length > 0) setTasks(getTasksFromLocalStore);
 	}, []);
