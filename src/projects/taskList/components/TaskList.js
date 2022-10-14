@@ -7,7 +7,7 @@ const TASK_LIST_KEY = "TASK_LIST_KEY";
 
 const TaskList = () => {
 	const [tasks, setTasks] = useState([]);
-	const inputRef = useRef(null);
+	const inputRef = useRef();
 
 	useEffect(() => {
 		const getTasksFromLocalStore = JSON.parse(
@@ -64,12 +64,7 @@ const TaskList = () => {
 					<div className="task-list-wrapper">
 						<h1 className="task-list-header">"Hunny, Do..." List</h1>
 						<Tasks tasks={tasks} handleToggleBox={handleToggleBox} />
-						<input
-							type="text"
-							maxLength={30}
-							ref={inputRef}
-							className="task-list-input"
-						/>
+						<input type="text" ref={inputRef} className="task-list-input" />
 						<div className="btn-wrapper">
 							<button onClick={handleAddTask} className="task-list-btn">
 								Add Task
