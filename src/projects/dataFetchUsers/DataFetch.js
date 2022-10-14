@@ -39,6 +39,7 @@ const DataFetch = () => {
 						<div className="users-name">
 							{user.name.first} {user.name.last}
 						</div>
+						<div>{user.location.country}</div>
 					</div>
 				))}
 				{/* <pre>{randomUserJSON}</pre> */}

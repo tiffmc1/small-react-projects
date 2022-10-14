@@ -21,6 +21,10 @@
 	border-radius: 4%;
 }
 
+.users-name {
+	font-weight: 600;
+}
+
 .users-btn-wrapper {
 	display: flex;
 	padding: 10px;
