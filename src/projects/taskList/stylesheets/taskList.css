@@ -50,10 +50,6 @@
 	text-align: center;
 }
 
-input[type="checkbox"] {
-	accent-color: rgb(75, 150, 21);
-}
-
 .task-list-btn {
 	box-sizing: border-box;
 	padding: 8px;
@@ -80,7 +76,6 @@ input[type="checkbox"] {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	box-shadow: 0 0 1em 0.1em rgba(150, 211, 7, 0.78);
 	opacity: 0;
 	background-color: rgba(146, 190, 12, 0.561);
 	transition: opacity 100ms linear;
@@ -92,6 +87,6 @@ input[type="checkbox"] {
 
 .task-list-remainders {
 	padding: 1rem;
-	color: rgb(174, 112, 19);
+	color: rgb(145, 93, 16);
 	font-size: 16px;
 }

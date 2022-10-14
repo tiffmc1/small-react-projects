@@ -66,7 +66,7 @@ const TaskList = () => {
 						<Tasks tasks={tasks} handleToggleBox={handleToggleBox} />
 						<input
 							type="text"
-							maxLength={20}
+							maxLength={30}
 							ref={inputRef}
 							className="task-list-input"
 						/>
