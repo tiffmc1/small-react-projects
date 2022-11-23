@@ -15,7 +15,8 @@ const TaskList = () => {
 		);
 
 		// will not persist without this statement
-		if (getTasksFromLocalStore.length > 0) setTasks(getTasksFromLocalStore);
+		//if (getTasksFromLocalStore.length > 0) setTasks(getTasksFromLocalStore);
+		setTasks((prevTasks) => [...prevTasks, ...getTasksFromLocalStore]);
 	}, []);
 
 	useEffect(() => {
