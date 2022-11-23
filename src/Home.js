@@ -12,6 +12,9 @@ const Home = () => {
 				<Link to="/hex-guess" className="home-link">
 					Hex-Guess Game
 				</Link>
+				<Link to="/keypad-permutations" className="home-link">
+					Keypad Permutations
+				</Link>
 				<Link to="/dataFetch" className="home-link">
 					Data Fetching: Random Users
 				</Link>
