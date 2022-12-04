@@ -4,23 +4,26 @@ import "./home.css";
 const Home = () => {
 	return (
 		<div className="home-container">
+			<div className="home-header">Small Projects Using React</div>
 			<div className="home-link-wrapper">
-				<div className="home-header">Small Projects Using React</div>
 				<Link to="/task-list" className="home-link">
 					"Hunny, Do..." List
+				</Link>
+				<Link to="/match-up" className="home-link">
+					Match Up! Memory Game
 				</Link>
 				<Link to="/hex-guess" className="home-link">
 					Hex-Guess Game
 				</Link>
-				<Link to="/keypad-permutations" className="home-link">
+				{/* <Link to="/keypad-permutations" className="home-link">
 					Keypad Permutations
-				</Link>
+				</Link> */}
 				<Link to="/dataFetch" className="home-link">
 					Data Fetching: Random Users
 				</Link>
-				<Link to="/posts" className="home-link">
+				{/* <Link to="/posts" className="home-link">
 					Data Fetching: Posts
-				</Link>
+				</Link> */}
 				{/* <Link to="/form" className="home-link">
 					Multi-Step Input Form
 				</Link> */}
