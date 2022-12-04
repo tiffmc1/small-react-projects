@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../hex-guess/hexGuess.css";
+import "../hexGuess/hexGuess.css";
 
 const generateRandomColor = () => {
 	const red = parseInt(Math.random() * 255);
@@ -42,6 +42,9 @@ function HexGuess() {
 		<>
 			<div className="hex-wrapper">
 				<h1 className="hex-header">Hex-Guess Game</h1>
+				<div className="hex-desc">
+					Pick the correct hex matching the color block below
+				</div>
 				<div className="hex-color" style={{ background: color }} />
 
 				<div className="hex-btn-wrapper">

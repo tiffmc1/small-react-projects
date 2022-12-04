@@ -9,6 +9,11 @@
 	font-size: 45px;
 }
 
+.hex-desc {
+	font-size: 25px;
+	margin: 10px 0 30px 0;
+}
+
 .hex-color {
 	width: 40vw;
 	height: 40vh;
