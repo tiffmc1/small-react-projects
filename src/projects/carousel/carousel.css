@@ -2,14 +2,17 @@
 	display: block;
 	padding-left: 3rem;
 	padding-top: 1rem;
+	width: 50%;
+	margin: 0 auto;
 }
 
 .red {
-	background: red;
+	background: rgb(22, 7, 235);
 }
 
 .element-container {
-	margin: 0 auto 20px;
+	margin: 0 auto;
+	width: 50%;
 }
 
 .element {
@@ -26,7 +29,8 @@
 }
 
 .button-container {
-	margin: 0;
+	margin: 0 auto;
+	width: 50%;
 }
 
 .button-ind {
