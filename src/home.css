@@ -29,7 +29,7 @@ html {
 .home-link-wrapper {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 30px;
+	gap: 25px;
 }
 
 .home-link {
@@ -39,7 +39,7 @@ html {
 	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 	border-radius: 10px;
 	color: black;
-	padding: 2rem;
+	padding: 1.5rem;
 	text-decoration: none;
 }
 
