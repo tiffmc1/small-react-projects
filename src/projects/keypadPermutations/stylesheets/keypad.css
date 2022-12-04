@@ -1,0 +1,27 @@
+.keypad-container {
+	display: flex;
+	justify-content: center;
+}
+
+.keypad-wrapper {
+	border: 1px solid black;
+	padding: 20px 10px;
+}
+
+.keys-container {
+	display: grid;
+	grid-template-columns: 50px 50px 50px;
+	justify-content: center;
+	gap: 20px;
+	padding: 10px;
+}
+
+.key {
+	border: 1px solid gray;
+	text-align: center;
+	padding: 10px 5px;
+}
+
+.key:hover {
+	transform: scale(0.98);
+}
