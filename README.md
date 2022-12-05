@@ -1,9 +1,9 @@
 ## Repository For Small Projects Using React
 
 1. "Hunny, Do..." List (Task List)
-2. Hex-Guess Game
-3. Data Fetching Random Users Using Axios
-4. Data Fetching Posts Using Built-In Fetch
+2. Match Up! Memory Game
+3. Hex-Guess Game
+4. Data Fetching Random Users Using Axios
 5. Carousel
 6. Counter
 
