@@ -1,4 +1,6 @@
 .tasks-wrapper {
-	display: flex;
-	flex-direction: column;
+	min-height: 100px;
+	width: 85%;
+	overflow: visible;
+	overflow-wrap: break-word;
 }

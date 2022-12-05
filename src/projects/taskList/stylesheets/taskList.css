@@ -8,8 +8,8 @@
 }
 
 .task-list-left {
-	width: 50%;
-	height: 700px;
+	width: 35%;
+	height: 500px;
 	background-image: url("../images/oriol-portell-AbwqpFnBDms-unsplash.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -18,55 +18,49 @@
 }
 
 .task-list-right {
-	width: 50%;
-	min-height: 400px;
-	margin-left: -200px;
+	width: 40%;
+	min-height: 300px;
+	margin-left: -150px;
 }
 
 .task-list-wrapper {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	font-size: 18px;
-	border: 1px white solid;
+	font-size: 15px;
+	border: 1px solid white;
 	border-radius: 8px;
 	background-color: rgba(232, 186, 60, 0.866);
 }
 
 .task-list-header {
-	padding-top: 1rem;
-	padding-bottom: 1.5rem;
+	padding: 15px 0;
 	color: rgb(122, 137, 6);
 }
 
 .task-list-input {
 	border-radius: 8px;
-	border: rgb(239, 212, 10) 1px solid;
+	border: rgb(85, 54, 7) 1px solid;
 	padding: 8px;
 	margin: 10px;
 	width: 75%;
-	box-shadow: 0 0 0.2em 0 rgb(85, 77, 14);
+	box-shadow: 0 0 0.2em 0 rgb(57, 47, 32);
 	font-size: 15px;
 	text-align: center;
 }
 
 .task-list-btn {
 	box-sizing: border-box;
-	padding: 8px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 2%;
-	margin-bottom: 2%;
+	padding: 8px 3px;
+	margin: 3px auto;
 	text-decoration: none;
-	border: rgb(136, 121, 9) 2px solid;
+	border: 2px solid rgb(136, 121, 9);
 	border-radius: 8px;
 	width: 100%;
 	position: relative;
 	background: var(--clr-bg);
 	color: rgb(85, 54, 7);
-	font-size: 15px;
-	text-shadow: 0 0 0.125em rgb(255, 255, 255);
-	box-shadow: inset 0 0 0.1em 0, 0 0 0.1em 0;
+	font-size: 13px;
 }
 
 .task-list-btn::after {
@@ -88,5 +82,5 @@
 .task-list-remainders {
 	padding: 1rem;
 	color: rgb(145, 93, 16);
-	font-size: 16px;
+	font-size: 13px;
 }

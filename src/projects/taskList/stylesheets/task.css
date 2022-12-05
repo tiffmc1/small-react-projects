@@ -1,13 +1,9 @@
 .task-wrapper {
-	display: flex;
-	align-items: flex-start;
-	margin-left: 35%;
-	padding: 5px;
-	width: 280px;
+	margin-left: 28%;
 }
 
 input[type="checkbox"] {
 	accent-color: rgb(75, 150, 21);
-	margin-right: 8px;
-	margin-top: 3px;
+	margin-right: 4px;
+	margin-top: 5px;
 }
