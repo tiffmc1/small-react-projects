@@ -1,0 +1,26 @@
+.hangman-alphabet {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 5px;
+	width: 50%;
+	margin: 0 auto;
+}
+
+.hangman-letter {
+	padding: 5px;
+}
+
+.hangman-category {
+	display: flex;
+	justify-content: center;
+	padding: 5px;
+}
+
+.hangman-underscores {
+	display: flex;
+	justify-content: center;
+}
+
+.hangman-underscore {
+	padding: 10px;
+}
