@@ -4,7 +4,7 @@ import "./home.css";
 const Home = () => {
 	return (
 		<div className="home-container">
-			<div className="home-header">Small Projects Using React</div>
+			<div className="home-header">Mini Applications</div>
 			<div className="home-link-wrapper">
 				<Link to="/task-list" className="home-link">
 					"Hunny, Do..." List
@@ -14,6 +14,9 @@ const Home = () => {
 				</Link>
 				<Link to="/hex-guess" className="home-link">
 					Hex-Guess Game
+				</Link>
+				<Link to="/hangman" className="home-link">
+					Hangman
 				</Link>
 				{/* <Link to="/keypad-permutations" className="home-link">
 					Keypad Permutations

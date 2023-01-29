@@ -3,6 +3,7 @@ import Home from "./Home";
 import TaskList from "./projects/taskList/components/TaskList";
 import MatchUp from "./projects/matchUp/MatchUp";
 import HexGuess from "./projects/hexGuess/HexGuess";
+import Hangman from "./projects/hangman/Hangman";
 import Keypad from "./projects/keypadPermutations/Components/Keypad";
 import DataFetch from "./projects/dataFetchUsers/DataFetch";
 import Carousel from "./projects/carousel/Carousel";
@@ -26,6 +27,7 @@ function App() {
 				<Route path="/task-list" element={<TaskList />} />
 				<Route path="/match-up" element={<MatchUp />} />
 				<Route path="/hex-guess" element={<HexGuess />} />
+				<Route path="/hangman" element={<Hangman />} />
 				<Route path="/keypad-permutations" element={<Keypad />} />
 				<Route path="/dataFetch" element={<DataFetch />} />
 				{/* <Route path="/posts" element={<Posts />} /> */}
