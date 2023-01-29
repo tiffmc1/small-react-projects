@@ -12,6 +12,8 @@ const MatchUp = () => {
 	const [disableCardClick, setDisableCardClick] = useState(
 		new Array(grid.length).fill(true)
 	);
+	const [count, setCount] = useState(0);
+	const [bestScore, setBestScore] = useState(16);
 
 	const generateRandomPairs = () => {
 		let startingGrid = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9];
@@ -28,6 +30,7 @@ const MatchUp = () => {
 		setGrid(newGrid);
 		setDisableCardClick(resetDisableCardClick);
 		setRevealedGrid(resetRevealedGrid);
+		setCount(0);
 		setFirstClick({});
 	};
 
@@ -69,14 +72,25 @@ const MatchUp = () => {
 			setFirstClick({});
 		};
 
-		if (firstClick.num) handleSecondCardFlip(index);
+		if (firstClick.num) {
+			handleSecondCardFlip(index);
+			setCount(count + 1);
+		}
 
 		// IF EVERY CARD HAS BEEN REVEALED
 		let hasWon = copiedRevealedGrid.every((cardRevealed) => cardRevealed);
 
+		if (hasWon && count < bestScore) {
+			setBestScore(count);
+
+			setTimeout(() => {
+				alert("CONGRATS! YOU WON AND ARE THE TOP SCORER!");
+			}, 1000);
+		}
+
 		if (hasWon) {
 			setTimeout(() => {
-				alert("CONGRATS! YOU WON!!!");
+				alert("Congrats! You won! However, try again to beat the top score.");
 			}, 1000);
 		}
 	};
@@ -94,6 +108,8 @@ const MatchUp = () => {
 					<button className="grid-btn" onClick={generateRandomPairs}>
 						Generate Grid
 					</button>
+					<div>Pair Attempts: {count}</div>
+					<div>Best Score: {bestScore}</div>
 					{/* <Timer revealedGrid={revealedGrid} /> */}
 				</div>
 				<div className="grid-container">
