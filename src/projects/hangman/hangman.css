@@ -1,17 +1,21 @@
+.hangman-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.hangman-title {
+	font-size: 25px;
+	margin: -20px 0 10px 0;
+}
+
+.hangman-btn {
+	padding: 5px;
+	background-color: azure;
+}
+
 .no-click {
 	pointer-events: none;
-}
-
-.hangman-alphabet {
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	gap: 5px;
-	width: 50%;
-	margin: 0 auto;
-}
-
-.hangman-letter {
-	padding: 5px;
 }
 
 .hangman-category {
@@ -22,9 +26,48 @@
 
 .hangman-underscores {
 	display: flex;
+	flex-wrap: nowrap;
 	justify-content: center;
+	margin: 5px 0;
+	border: 1px solid green;
 }
 
 .hangman-underscore {
-	padding: 10px;
+	padding: 7px;
+	width: auto;
+	border: 1px solid pink;
+}
+
+.hangman-img-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.hangman-img {
+	margin: 5px;
+}
+
+.hangman-chances {
+	margin-top: -70px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.hangman-alphabet {
+	display: grid;
+	grid-template-columns: repeat(9, 1fr);
+	gap: 15px;
+	width: 90%;
+	padding-top: 10px;
+	margin: 0 auto;
+}
+
+.hangman-letter {
+	padding: 5px;
+	background-color: azure;
 }

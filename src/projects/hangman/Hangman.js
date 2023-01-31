@@ -57,7 +57,7 @@ const categoryData = {
 	],
 };
 
-const underscore = " _____ ";
+const underscore = "__";
 
 const Hangman = () => {
 	const [chosenCategory, setChosenCategory] = useState("");
@@ -73,7 +73,7 @@ const Hangman = () => {
 		if (chances < 1) {
 			setDisablePageClick(true);
 			setTimeout(() => {
-				alert("You lose. Click the button below to play again!");
+				alert("You lose. Start a new game!");
 			}, 1000);
 		}
 
@@ -84,7 +84,7 @@ const Hangman = () => {
 		) {
 			setDisablePageClick(true);
 			setTimeout(() => {
-				alert("Congrats! You won! Click the button below to play again.");
+				alert("Congrats! You won! Start a new game.");
 			}, 1000);
 		}
 	}, [chances, chosenWordLetters]);
@@ -141,8 +141,6 @@ const Hangman = () => {
 		}
 	};
 
-	console.log(chancesImg);
-
 	const handleNewGame = () => {
 		setChosenWordLetters([]);
 		setIncorrectGuesses([]);
@@ -154,10 +152,12 @@ const Hangman = () => {
 	};
 
 	return (
-		<div>
-			<div>Hangman</div>
+		<div className="hangman-container">
+			<div className="hangman-title">Hangman</div>
 
-			<button onClick={handleNewGame}>New Game</button>
+			<button onClick={handleNewGame} className="hangman-btn">
+				New Game
+			</button>
 
 			<div className={disablePageClick ? "no-click" : null}>
 				<div className="hangman-category">
@@ -172,18 +172,29 @@ const Hangman = () => {
 					))}
 				</div>
 
-				<div>Chances: {chances}</div>
-				<div>Incorrect Guesses: {incorrectGuesses.join(", ")}</div>
-
-				<div>
-					{chancesImg ? (
-						<img
-							src={require(`./images/hangman-${chancesImg}.png`)}
-							alt=""
-							height={350}
-							width={250}
-						/>
-					) : null}
+				<div className="hangman-img-wrapper">
+					<div className="hangman-img">
+						{chancesImg ? (
+							<img
+								src={require(`./images/hangman-${chancesImg}.png`)}
+								alt=""
+								height={350}
+								width={250}
+							/>
+						) : (
+							<img
+								src={require("./images/hangman-0.png")}
+								alt=""
+								height={350}
+								width={250}
+							/>
+						)}
+						<div className="hangman-chances">
+							<div>Chances: {chances}</div>
+							<div>Incorrect Guesses:</div>
+							<div>{incorrectGuesses.join(", ")}</div>
+						</div>
+					</div>
 				</div>
 
 				<div className="hangman-alphabet">
