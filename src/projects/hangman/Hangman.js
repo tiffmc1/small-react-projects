@@ -47,6 +47,7 @@ const Hangman = () => {
 	]);
 	const [chances, setChances] = useState(10);
 	const [incorrectGuesses, setIncorrectGuesses] = useState([]);
+	const [disablePageClick, setDisablePageClick] = useState(false);
 
 	const handleLetterGuess = (guessedLetter) => {
 		// setting correctly guessed letters to state
@@ -63,6 +64,7 @@ const Hangman = () => {
 			setIncorrectGuesses((prevGuesses) => [...prevGuesses, guessedLetter]);
 
 			if (chances <= 0) {
+				setDisablePageClick(true);
 				setTimeout(() => {
 					alert("You lose");
 				}, 1000);
@@ -71,49 +73,57 @@ const Hangman = () => {
 
 		// winner!
 		if (dummy.every((letter) => letter.correctlyGuessed === true)) {
+			setDisablePageClick(true);
 			setTimeout(() => {
-				alert("congrats you won");
+				alert("congrats you won! Click the Play Again button to restart");
 			}, 1000);
 		}
 	};
 
+	const handlePlayAgain = () => {
+		setDisablePageClick(false);
+	};
+
 	return (
 		<div>
-			<div>Hangman</div>
+			<div className={disablePageClick ? "no-click" : null}>
+				<div>Hangman</div>
 
-			<div className="hangman-alphabet">
-				{alphabet.map((letter, i) => (
-					<button
-						key={i}
-						onClick={() => handleLetterGuess(letter)}
-						className="hangman-letter"
-					>
-						{letter}
-					</button>
-				))}
+				<div className="hangman-alphabet">
+					{alphabet.map((letter, i) => (
+						<button
+							key={i}
+							onClick={() => handleLetterGuess(letter)}
+							className="hangman-letter"
+						>
+							{letter}
+						</button>
+					))}
+				</div>
+
+				<div className="hangman-category">
+					The category is famous scientists
+				</div>
+
+				<div className="hangman-underscores">
+					{dummy.map((char, i) => (
+						<div key={i} className="hangman-underscore">
+							{char.correctlyGuessed ? char.letter : underscore}
+						</div>
+					))}
+				</div>
+
+				<div>Chances: {chances}</div>
+				<div>Incorrect Guesses: {incorrectGuesses.join(", ")}</div>
+
+				<img
+					src={require("./images/hangman-9.png")}
+					alt=""
+					height={350}
+					width={250}
+				/>
 			</div>
-
-			<div className="hangman-category">The category is famous scientists</div>
-
-			<div className="hangman-underscores">
-				{dummy.map((char, i) => (
-					<div key={i} className="hangman-underscore">
-						{char.correctlyGuessed ? char.letter : underscore}
-					</div>
-				))}
-			</div>
-
-			<div>Chances: {chances}</div>
-			<div>Incorrect Guesses: {incorrectGuesses.join(", ")}</div>
-
-			<img
-				src={require("./images/hangman-9.png")}
-				alt=""
-				height={350}
-				width={250}
-			/>
-
-			<button>Play Again</button>
+			<button onClick={handlePlayAgain}>Play Again</button>
 		</div>
 	);
 };

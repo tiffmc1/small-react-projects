@@ -1,3 +1,7 @@
+.no-click {
+	pointer-events: none;
+}
+
 .hangman-alphabet {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
