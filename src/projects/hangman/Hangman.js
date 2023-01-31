@@ -30,7 +30,7 @@ const alphabet = [
 	"z",
 ];
 
-const dummyData = {
+const categoryData = {
 	automobiles: [
 		"volkswagen scirocco",
 		"koenigsegg gemera",
@@ -62,7 +62,7 @@ const underscore = " _____ ";
 const Hangman = () => {
 	const [chosenCategory, setChosenCategory] = useState("");
 	const [chosenWordArr, setChosenWordArr] = useState([]);
-	const [dummy, setDummy] = useState([]);
+	const [chosenWordLetters, setChosenWordLetters] = useState([]);
 	const [chances, setChances] = useState(10);
 	const [incorrectGuesses, setIncorrectGuesses] = useState([]);
 	const [disablePageClick, setDisablePageClick] = useState(false);
@@ -78,40 +78,40 @@ const Hangman = () => {
 
 		// winner!
 		if (
-			dummy.length > 0 &&
-			dummy.every((letter) => letter.correctlyGuessed === true)
+			chosenWordLetters.length > 0 &&
+			chosenWordLetters.every((letter) => letter.correctlyGuessed === true)
 		) {
 			setDisablePageClick(true);
 			setTimeout(() => {
 				alert("Congrats! You won! Click the button below to play again.");
 			}, 1000);
 		}
-	}, [chances, dummy]);
+	}, [chances, chosenWordLetters]);
 
 	const generateRandomWord = () => {
-		let dummyDataKeys = Object.keys(dummyData).sort(() =>
+		let categoryDataKeys = Object.keys(categoryData).sort(() =>
 			Math.floor(Math.random() - 0.5)
 		);
+		let chosenCategoryKey = categoryDataKeys[0];
 
-		let chosenKey = dummyDataKeys[0];
-		setChosenCategory(chosenKey);
+		setChosenCategory(chosenCategoryKey);
 
-		for (let key in dummyData) {
-			if (key === chosenKey) {
-				let dummyDataValues = dummyData[key].sort(() =>
+		for (let key in categoryData) {
+			if (key === chosenCategoryKey) {
+				let categoryDataValues = categoryData[key].sort(() =>
 					Math.floor(Math.random() - 0.5)
 				);
+				let chosenWordValue = categoryDataValues[0].split("");
 
-				let chosenValue = dummyDataValues[0].split("");
-				setChosenWordArr(chosenValue);
+				setChosenWordArr(chosenWordValue);
 
-				chosenValue.map((char) =>
+				chosenWordValue.map((char) =>
 					char === " "
-						? setDummy((prevChars) => [
+						? setChosenWordLetters((prevChars) => [
 								...prevChars,
 								{ letter: char, correctlyGuessed: true },
 						  ])
-						: setDummy((prevChars) => [
+						: setChosenWordLetters((prevChars) => [
 								...prevChars,
 								{ letter: char, correctlyGuessed: false },
 						  ])
@@ -122,13 +122,13 @@ const Hangman = () => {
 
 	const handleLetterGuess = (guessedLetter) => {
 		// setting correctly guessed letters to state
-		let copyDummy = [...dummy];
+		let copyChosenWordLetters = [...chosenWordLetters];
 
-		copyDummy.map((char) =>
+		copyChosenWordLetters.map((char) =>
 			guessedLetter === char.letter ? (char.correctlyGuessed = true) : null
 		);
 
-		setDummy(copyDummy);
+		setChosenWordLetters(copyChosenWordLetters);
 
 		// incorrect guess/decrease chances
 		let isIncorrectGuess = !chosenWordArr.includes(guessedLetter);
@@ -139,8 +139,8 @@ const Hangman = () => {
 		}
 	};
 
-	const handlePlayAgain = () => {
-		setDummy([]);
+	const handleNewGame = () => {
+		setChosenWordLetters([]);
 		setIncorrectGuesses([]);
 		setChances(10);
 
@@ -170,7 +170,7 @@ const Hangman = () => {
 				</div>
 
 				<div className="hangman-underscores">
-					{dummy.map((char, i) => (
+					{chosenWordLetters.map((char, i) => (
 						<div key={i} className="hangman-underscore">
 							{char.correctlyGuessed ? char.letter : underscore}
 						</div>
@@ -187,7 +187,7 @@ const Hangman = () => {
 					width={250}
 				/>
 			</div>
-			<button onClick={handlePlayAgain}>Play Again</button>
+			<button onClick={handleNewGame}>Play Again</button>
 		</div>
 	);
 };
