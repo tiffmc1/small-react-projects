@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./hangman.css";
 
 const alphabet = [
@@ -49,6 +49,24 @@ const Hangman = () => {
 	const [incorrectGuesses, setIncorrectGuesses] = useState([]);
 	const [disablePageClick, setDisablePageClick] = useState(false);
 
+	useEffect(() => {
+		// loser
+		if (chances < 1) {
+			setDisablePageClick(true);
+			setTimeout(() => {
+				alert("You lose. Click the button below to play again!");
+			}, 1000);
+		}
+
+		// winner!
+		if (dummy.every((letter) => letter.correctlyGuessed === true)) {
+			setDisablePageClick(true);
+			setTimeout(() => {
+				alert("Congrats! You won! Click the button below to play again.");
+			}, 1000);
+		}
+	}, [chances, dummy]);
+
 	const handleLetterGuess = (guessedLetter) => {
 		// setting correctly guessed letters to state
 		let copyDummy = [...dummy];
@@ -62,21 +80,6 @@ const Hangman = () => {
 		if (isIncorrectGuess) {
 			setChances(chances - 1);
 			setIncorrectGuesses((prevGuesses) => [...prevGuesses, guessedLetter]);
-
-			if (chances <= 0) {
-				setDisablePageClick(true);
-				setTimeout(() => {
-					alert("You lose");
-				}, 1000);
-			}
-		}
-
-		// winner!
-		if (dummy.every((letter) => letter.correctlyGuessed === true)) {
-			setDisablePageClick(true);
-			setTimeout(() => {
-				alert("congrats you won! Click the Play Again button to restart");
-			}, 1000);
 		}
 	};
 
