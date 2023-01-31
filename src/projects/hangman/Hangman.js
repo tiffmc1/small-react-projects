@@ -30,21 +30,39 @@ const alphabet = [
 	"z",
 ];
 
-let dummyWord = "einstein";
-let dummyWordArr = dummyWord.split("");
+const dummyData = {
+	automobiles: [
+		"volkswagen scirocco",
+		"koenigsegg gemera",
+		"lamborghini murcielago",
+		"maserati quattroporte",
+		"ssangyong tivoli",
+		"pagani huayara",
+		"porsche cayenne",
+		"ferrari testarossa",
+		"chevrolet corvette stingray",
+		"ford mustang shelby",
+	],
+	scientists: [
+		"albert einstein",
+		"nikola tesla",
+		"charles darwin",
+		"thomas edison",
+		"marie curie",
+		"stephen hawking",
+		"george washington carver",
+		"alexander graham bell",
+		"archimedes",
+		"louis pasteur",
+	],
+};
+
 const underscore = " _____ ";
 
 const Hangman = () => {
-	const [dummy, setDummy] = useState([
-		{ letter: "e", correctlyGuessed: false },
-		{ letter: "i", correctlyGuessed: false },
-		{ letter: "n", correctlyGuessed: false },
-		{ letter: "s", correctlyGuessed: false },
-		{ letter: "t", correctlyGuessed: false },
-		{ letter: "e", correctlyGuessed: false },
-		{ letter: "i", correctlyGuessed: false },
-		{ letter: "n", correctlyGuessed: false },
-	]);
+	const [chosenCategory, setChosenCategory] = useState("");
+	const [chosenWordArr, setChosenWordArr] = useState([]);
+	const [dummy, setDummy] = useState([]);
 	const [chances, setChances] = useState(10);
 	const [incorrectGuesses, setIncorrectGuesses] = useState([]);
 	const [disablePageClick, setDisablePageClick] = useState(false);
@@ -59,7 +77,10 @@ const Hangman = () => {
 		}
 
 		// winner!
-		if (dummy.every((letter) => letter.correctlyGuessed === true)) {
+		if (
+			dummy.length > 0 &&
+			dummy.every((letter) => letter.correctlyGuessed === true)
+		) {
 			setDisablePageClick(true);
 			setTimeout(() => {
 				alert("Congrats! You won! Click the button below to play again.");
@@ -67,16 +88,51 @@ const Hangman = () => {
 		}
 	}, [chances, dummy]);
 
+	const generateRandomWord = () => {
+		let dummyDataKeys = Object.keys(dummyData).sort(() =>
+			Math.floor(Math.random() - 0.5)
+		);
+
+		let chosenKey = dummyDataKeys[0];
+		setChosenCategory(chosenKey);
+
+		for (let key in dummyData) {
+			if (key === chosenKey) {
+				let dummyDataValues = dummyData[key].sort(() =>
+					Math.floor(Math.random() - 0.5)
+				);
+
+				let chosenValue = dummyDataValues[0].split("");
+				setChosenWordArr(chosenValue);
+
+				chosenValue.map((char) =>
+					char === " "
+						? setDummy((prevChars) => [
+								...prevChars,
+								{ letter: char, correctlyGuessed: true },
+						  ])
+						: setDummy((prevChars) => [
+								...prevChars,
+								{ letter: char, correctlyGuessed: false },
+						  ])
+				);
+			}
+		}
+	};
+
 	const handleLetterGuess = (guessedLetter) => {
 		// setting correctly guessed letters to state
 		let copyDummy = [...dummy];
+
 		copyDummy.map((char) =>
 			guessedLetter === char.letter ? (char.correctlyGuessed = true) : null
 		);
+
 		setDummy(copyDummy);
 
-		// incorrect guesses/decrease chances
-		let isIncorrectGuess = !dummyWordArr.includes(guessedLetter);
+		// incorrect guess/decrease chances
+		let isIncorrectGuess = !chosenWordArr.includes(guessedLetter);
+
 		if (isIncorrectGuess) {
 			setChances(chances - 1);
 			setIncorrectGuesses((prevGuesses) => [...prevGuesses, guessedLetter]);
@@ -84,6 +140,11 @@ const Hangman = () => {
 	};
 
 	const handlePlayAgain = () => {
+		setDummy([]);
+		setIncorrectGuesses([]);
+		setChances(10);
+
+		generateRandomWord();
 		setDisablePageClick(false);
 	};
 
@@ -105,7 +166,7 @@ const Hangman = () => {
 				</div>
 
 				<div className="hangman-category">
-					The category is famous scientists
+					The category is {`${chosenCategory}`}
 				</div>
 
 				<div className="hangman-underscores">
