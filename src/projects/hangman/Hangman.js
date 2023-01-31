@@ -31,7 +31,7 @@ const alphabet = [
 ];
 
 const categoryData = {
-	automobiles: [
+	Automobiles: [
 		"volkswagen scirocco",
 		"koenigsegg gemera",
 		"lamborghini murcielago",
@@ -43,7 +43,7 @@ const categoryData = {
 		"chevrolet corvette stingray",
 		"ford mustang shelby",
 	],
-	scientists: [
+	Scientists: [
 		"albert einstein",
 		"nikola tesla",
 		"charles darwin",
@@ -64,8 +64,9 @@ const Hangman = () => {
 	const [chosenWordArr, setChosenWordArr] = useState([]);
 	const [chosenWordLetters, setChosenWordLetters] = useState([]);
 	const [chances, setChances] = useState(10);
+	const [chancesImg, setChancesImg] = useState(0);
 	const [incorrectGuesses, setIncorrectGuesses] = useState([]);
-	const [disablePageClick, setDisablePageClick] = useState(false);
+	const [disablePageClick, setDisablePageClick] = useState(true);
 
 	useEffect(() => {
 		// loser
@@ -135,14 +136,18 @@ const Hangman = () => {
 
 		if (isIncorrectGuess) {
 			setChances(chances - 1);
+			setChancesImg(chancesImg + 1);
 			setIncorrectGuesses((prevGuesses) => [...prevGuesses, guessedLetter]);
 		}
 	};
+
+	console.log(chancesImg);
 
 	const handleNewGame = () => {
 		setChosenWordLetters([]);
 		setIncorrectGuesses([]);
 		setChances(10);
+		setChancesImg(0);
 
 		generateRandomWord();
 		setDisablePageClick(false);
@@ -150,23 +155,13 @@ const Hangman = () => {
 
 	return (
 		<div>
+			<div>Hangman</div>
+
+			<button onClick={handleNewGame}>New Game</button>
+
 			<div className={disablePageClick ? "no-click" : null}>
-				<div>Hangman</div>
-
-				<div className="hangman-alphabet">
-					{alphabet.map((letter, i) => (
-						<button
-							key={i}
-							onClick={() => handleLetterGuess(letter)}
-							className="hangman-letter"
-						>
-							{letter}
-						</button>
-					))}
-				</div>
-
 				<div className="hangman-category">
-					The category is {`${chosenCategory}`}
+					The category is: {chosenCategory ? `${chosenCategory}` : "N/A"}
 				</div>
 
 				<div className="hangman-underscores">
@@ -180,14 +175,29 @@ const Hangman = () => {
 				<div>Chances: {chances}</div>
 				<div>Incorrect Guesses: {incorrectGuesses.join(", ")}</div>
 
-				<img
-					src={require("./images/hangman-9.png")}
-					alt=""
-					height={350}
-					width={250}
-				/>
+				<div>
+					{chancesImg ? (
+						<img
+							src={require(`./images/hangman-${chancesImg}.png`)}
+							alt=""
+							height={350}
+							width={250}
+						/>
+					) : null}
+				</div>
+
+				<div className="hangman-alphabet">
+					{alphabet.map((letter, i) => (
+						<button
+							key={i}
+							onClick={() => handleLetterGuess(letter)}
+							className="hangman-letter"
+						>
+							{letter}
+						</button>
+					))}
+				</div>
 			</div>
-			<button onClick={handleNewGame}>Play Again</button>
 		</div>
 	);
 };
