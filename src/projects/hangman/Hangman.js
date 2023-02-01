@@ -198,8 +198,8 @@ const Hangman = () => {
 				</div>
 
 				<div className="hangman-alphabet">
-					{alphabet.map((letter, i) => (
-						<button
+					{alphabet.map((letter, i) => (  
+            <button
 							key={i}
 							onClick={() => handleLetterGuess(letter)}
 							className="hangman-letter"
