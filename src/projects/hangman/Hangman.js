@@ -1,63 +1,6 @@
 import { useState, useEffect } from "react";
 import "./hangman.css";
-
-const alphabet = [
-	"a",
-	"b",
-	"c",
-	"d",
-	"e",
-	"f",
-	"g",
-	"h",
-	"i",
-	"j",
-	"k",
-	"l",
-	"m",
-	"n",
-	"o",
-	"p",
-	"q",
-	"r",
-	"s",
-	"t",
-	"u",
-	"v",
-	"w",
-	"x",
-	"y",
-	"z",
-];
-
-const categoryData = {
-	Automobiles: [
-		"volkswagen scirocco",
-		"koenigsegg gemera",
-		"lamborghini murcielago",
-		"maserati quattroporte",
-		"ssangyong tivoli",
-		"pagani huayara",
-		"porsche cayenne",
-		"ferrari testarossa",
-		"chevrolet corvette stingray",
-		"ford mustang shelby",
-	],
-	Scientists: [
-		"albert einstein",
-		"nikola tesla",
-		"charles darwin",
-		"thomas edison",
-		"marie curie",
-		"stephen hawking",
-		"george washington carver",
-		"alexander graham bell",
-		"archimedes",
-		"louis pasteur",
-	],
-};
-
-const underscore = "__";
+import { underscore, alphabet, categoryData } from "./data";
 
 const Hangman = () => {
 	const [chosenCategory, setChosenCategory] = useState("");
@@ -198,8 +141,8 @@ const Hangman = () => {
 				</div>
 
 				<div className="hangman-alphabet">
-					{alphabet.map((letter, i) => (  
-            <button
+					{alphabet.map((letter, i) => (
+						<button
 							key={i}
 							onClick={() => handleLetterGuess(letter)}
 							className="hangman-letter"
