@@ -3,7 +3,7 @@ import Home from "./Home";
 import TaskList from "./projects/taskList/components/TaskList";
 import MatchUp from "./projects/matchUp/MatchUp";
 import HexGuess from "./projects/hexGuess/HexGuess";
-import Hangman from "./projects/hangman/Hangman";
+import Hangman from "./projects/hangman/components/Hangman";
 import Keypad from "./projects/keypadPermutations/Components/Keypad";
 import DataFetch from "./projects/dataFetchUsers/DataFetch";
 import Carousel from "./projects/carousel/Carousel";

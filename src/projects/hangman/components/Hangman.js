@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import "./hangman.css";
-import { underscore, alphabet, categoryData } from "./data";
+import ChosenWordLetters from "./ChosenWordLetters";
+import "../hangman.css";
+import { alphabet, categoryData } from "../data";
 
 const Hangman = () => {
 	const [chosenCategory, setChosenCategory] = useState("");
@@ -37,8 +38,11 @@ const Hangman = () => {
 			Math.floor(Math.random() - 0.5)
 		);
 		let chosenCategoryKey = categoryDataKeys[0];
-
-		setChosenCategory(chosenCategoryKey);
+		let categoryToSet = "";
+		for (let char of chosenCategoryKey) {
+			char === "_" ? (categoryToSet += " ") : (categoryToSet += char);
+		}
+		setChosenCategory(categoryToSet);
 
 		for (let key in categoryData) {
 			if (key === chosenCategoryKey) {
@@ -50,7 +54,7 @@ const Hangman = () => {
 				setChosenWordArr(chosenWordValue);
 
 				chosenWordValue.map((char) =>
-					char === " "
+					char === " " || char === "'" || char === ":"
 						? setChosenWordLetters((prevChars) => [
 								...prevChars,
 								{ letter: char, correctlyGuessed: true },
@@ -104,29 +108,24 @@ const Hangman = () => {
 
 			<div className={disablePageClick ? "no-click" : null}>
 				<div className="hangman-category">
-					The category is: {chosenCategory ? `${chosenCategory}` : "N/A"}
+					The category is:{" "}
+					{chosenCategory ? `${chosenCategory}` : "__________________"}
 				</div>
 
-				<div className="hangman-underscores">
-					{chosenWordLetters.map((char, i) => (
-						<div key={i} className="hangman-underscore">
-							{char.correctlyGuessed ? char.letter : underscore}
-						</div>
-					))}
-				</div>
+				<ChosenWordLetters chosenWordLetters={chosenWordLetters} />
 
 				<div className="hangman-img-wrapper">
 					<div className="hangman-img">
 						{chancesImg ? (
 							<img
-								src={require(`./images/hangman-${chancesImg}.png`)}
+								src={require(`../images/hangman-${chancesImg}.png`)}
 								alt=""
 								height={350}
 								width={250}
 							/>
 						) : (
 							<img
-								src={require("./images/hangman-0.png")}
+								src={require("../images/hangman-0.png")}
 								alt=""
 								height={350}
 								width={250}
