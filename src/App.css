@@ -15,19 +15,19 @@
 .nav-wrapper {
 	height: 22px;
 	border-bottom: 1px solid transparent;
-	transition: border-bottom 0.5s;
+	transition: border-bottom 0.3s;
 }
 
 .nav-wrapper a {
-	color: #8a8a8a;
+	color: #1e3d58;
 	text-decoration: none;
-	transition: color 0.5s;
+	transition: color 0.2s;
 }
 
 .nav-wrapper:hover {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #738580;
 }
 
 .nav-wrapper a:hover {
-	color: black;
+	color: #738580;
 }
