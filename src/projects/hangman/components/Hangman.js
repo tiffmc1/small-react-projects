@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ChosenWordLetters from "./ChosenWordLetters";
+import Images from "./Images";
 import "../hangman.css";
 import { alphabet, categoryData } from "../data";
 
@@ -34,16 +35,20 @@ const Hangman = () => {
 	}, [chances, chosenWordLetters]);
 
 	const generateRandomWord = () => {
+		// randomly select a category & set to state
 		let categoryDataKeys = Object.keys(categoryData).sort(() =>
 			Math.floor(Math.random() - 0.5)
 		);
 		let chosenCategoryKey = categoryDataKeys[0];
 		let categoryToSet = "";
+
 		for (let char of chosenCategoryKey) {
 			char === "_" ? (categoryToSet += " ") : (categoryToSet += char);
 		}
+
 		setChosenCategory(categoryToSet);
 
+		// find the selected category, randomly select a value from that category, and set to state
 		for (let key in categoryData) {
 			if (key === chosenCategoryKey) {
 				let categoryDataValues = categoryData[key].sort(() =>
@@ -53,6 +58,7 @@ const Hangman = () => {
 
 				setChosenWordArr(chosenWordValue);
 
+				// to include spaces, apostrophes, and semicolons in the selected value
 				chosenWordValue.map((char) =>
 					char === " " || char === "'" || char === ":"
 						? setChosenWordLetters((prevChars) => [
@@ -114,29 +120,12 @@ const Hangman = () => {
 
 				<ChosenWordLetters chosenWordLetters={chosenWordLetters} />
 
-				<div className="hangman-img-wrapper">
-					<div className="hangman-img">
-						{chancesImg ? (
-							<img
-								src={require(`../images/hangman-${chancesImg}.png`)}
-								alt=""
-								height={350}
-								width={250}
-							/>
-						) : (
-							<img
-								src={require("../images/hangman-0.png")}
-								alt=""
-								height={350}
-								width={250}
-							/>
-						)}
-						<div className="hangman-chances">
-							<div>Chances: {chances}</div>
-							<div>Incorrect Guesses:</div>
-							<div>{incorrectGuesses.join(", ")}</div>
-						</div>
-					</div>
+				<Images chancesImg={chancesImg} />
+
+				<div className="hangman-chances">
+					<div>Chances: {chances}</div>
+					<div>Incorrect Guesses:</div>
+					<div>{incorrectGuesses.join(", ")}</div>
 				</div>
 
 				<div className="hangman-alphabet">
