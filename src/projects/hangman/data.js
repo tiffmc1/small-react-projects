@@ -1,4 +1,4 @@
-const underscore = "__";
+const underscore = "_";
 
 const alphabet = [
 	"a",

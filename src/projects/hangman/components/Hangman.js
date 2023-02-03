@@ -114,26 +114,27 @@ const Hangman = () => {
 
 			<div className={disablePageClick ? "no-click" : null}>
 				<div className="hangman-category">
-					The category is:{" "}
-					{chosenCategory ? `${chosenCategory}` : "__________________"}
+					<div>
+						The category is:{" "}
+						{chosenCategory ? `${chosenCategory}` : "__________________"}
+					</div>
+					<div>Chances: {chances}</div>
 				</div>
 
 				<ChosenWordLetters chosenWordLetters={chosenWordLetters} />
 
 				<Images chancesImg={chancesImg} />
 
-				<div className="hangman-chances">
-					<div>Chances: {chances}</div>
-					<div>Incorrect Guesses:</div>
-					<div>{incorrectGuesses.join(", ")}</div>
-				</div>
-
 				<div className="hangman-alphabet">
 					{alphabet.map((letter, i) => (
 						<button
 							key={i}
 							onClick={() => handleLetterGuess(letter)}
-							className="hangman-letter"
+							className={
+								incorrectGuesses.includes(letter)
+									? "hangman-letter-wrong"
+									: "hangman-letter"
+							}
 						>
 							{letter}
 						</button>
