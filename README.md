@@ -3,9 +3,10 @@
 1. "Hunny, Do..." List (Task List)
 2. Match Up! Memory Game
 3. Hex-Guess Game
-4. Data Fetching Random Users Using Axios
-5. Carousel
-6. Counter
+4. Hangman
+5. Data Fetching Random Users Using Axios
+6. Carousel
+7. Counter
 
 ### Technologies
 
